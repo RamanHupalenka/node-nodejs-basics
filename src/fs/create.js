@@ -1,12 +1,12 @@
 import { resolve } from 'path';
 import { writeFile } from 'fs/promises';
-import { isFileExists, getCurrentFileInfo } from '../utils/fs.js';
+import { isFileOrFolderExists, getCurrentFileInfo } from '../utils/fs.js';
 
 const create = async () => {
     const [dirname] = getCurrentFileInfo(import.meta.url);
     const pathToFile = resolve(dirname, './files/fresh.txt');
 
-    const isTargetFileExists = await isFileExists(pathToFile);
+    const isTargetFileExists = await isFileOrFolderExists(pathToFile);
 
     if (isTargetFileExists) {
         throw new Error('FS operation failed');

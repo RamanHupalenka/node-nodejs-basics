@@ -1,12 +1,12 @@
 import { resolve } from 'path';
 import { readFile } from 'fs/promises';
-import { isFileExists, getCurrentFileInfo } from '../utils/fs.js';
+import { isFileOrFolderExists, getCurrentFileInfo } from '../utils/fs.js';
 
 const read = async () => {
     const [dirname] = getCurrentFileInfo(import.meta.url);
     const pathToFile = resolve(dirname, './files/fileToRead.txt');
 
-    const isTargetFileDoesNotExists = !(await isFileExists(pathToFile));
+    const isTargetFileDoesNotExists = !(await isFileOrFolderExists(pathToFile));
 
     if (isTargetFileDoesNotExists) {
         throw new Error('FS operation failed');

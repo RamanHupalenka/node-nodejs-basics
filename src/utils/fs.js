@@ -10,7 +10,7 @@ export const getCurrentFileInfo = (fileUrl) => {
     return [__dirname, __filename];
 };
 
-export const isFileExists = async (pathToFileOrFolder) => {
+export const isFileOrFolderExists = async (pathToFileOrFolder) => {
     try {
         await access(pathToFileOrFolder, constants.F_OK);
 

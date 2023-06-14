@@ -1,6 +1,6 @@
 import { resolve } from 'path';
 import { rename as renameFile } from 'fs/promises';
-import { isFileExists, getCurrentFileInfo } from '../utils/fs.js';
+import { isFileOrFolderExists, getCurrentFileInfo } from '../utils/fs.js';
 
 const rename = async () => {
     const sourceFileFileName = 'wrongFilename.txt';
@@ -10,8 +10,8 @@ const rename = async () => {
     const pathToSourceFile = resolve(dirname, `./files/${sourceFileFileName}`);
     const pathToTargetFile = resolve(dirname, `./files/${targetFileFileName}`);
 
-    const isTargetFileDoesNotExists = !(await isFileExists(pathToSourceFile));
-    const isSourceFileExists = await isFileExists(pathToTargetFile);
+    const isTargetFileDoesNotExists = !(await isFileOrFolderExists(pathToSourceFile));
+    const isSourceFileExists = await isFileOrFolderExists(pathToTargetFile);
 
     if (isTargetFileDoesNotExists || isSourceFileExists) {
         throw new Error('FS operation failed');
