@@ -10,10 +10,12 @@ export const getCurrentFileInfo = (fileUrl) => {
     return [__dirname, __filename];
 };
 
-export const checkForFileExistence = async (pathToFile) => {
+export const isFileExists = async (pathToFile) => {
     try {
-        await access(pathToFile, constants.R_OK);
+        await access(pathToFile, constants.F_OK);
+
+        return true;
     } catch {
-        throw new Error('FS operation failed');
+        return false;
     }
 };
