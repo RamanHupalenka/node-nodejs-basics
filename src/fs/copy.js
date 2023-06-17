@@ -3,9 +3,9 @@ import { cp as copyFolder } from 'fs/promises';
 import { isFileOrFolderExists, getCurrentFileInfo } from '../utils/fs.js';
 
 const copy = async () => {
-    const [dirname] = getCurrentFileInfo(import.meta.url);
-    const pathToSourceFolder = resolve(dirname, './files');
-    const pathToTargetFolder = resolve(dirname, './files_copy');
+    const [__dirname] = getCurrentFileInfo(import.meta.url);
+    const pathToSourceFolder = resolve(__dirname, './files');
+    const pathToTargetFolder = resolve(__dirname, './files_copy');
 
     const isSourceFolderDoesNotExists = !(await isFileOrFolderExists(pathToSourceFolder));
     const isTargetFolderExists = await isFileOrFolderExists(pathToTargetFolder);

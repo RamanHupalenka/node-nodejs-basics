@@ -6,9 +6,9 @@ const rename = async () => {
     const sourceFileFileName = 'wrongFilename.txt';
     const targetFileFileName = 'properFilename.md';
 
-    const [dirname] = getCurrentFileInfo(import.meta.url);
-    const pathToSourceFile = resolve(dirname, `./files/${sourceFileFileName}`);
-    const pathToTargetFile = resolve(dirname, `./files/${targetFileFileName}`);
+    const [__dirname] = getCurrentFileInfo(import.meta.url);
+    const pathToSourceFile = resolve(__dirname, `./files/${sourceFileFileName}`);
+    const pathToTargetFile = resolve(__dirname, `./files/${targetFileFileName}`);
 
     const isTargetFileDoesNotExists = !(await isFileOrFolderExists(pathToSourceFile));
     const isSourceFileExists = await isFileOrFolderExists(pathToTargetFile);

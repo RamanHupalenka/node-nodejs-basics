@@ -3,8 +3,8 @@ import { readdir as readFolder } from 'fs/promises';
 import { isFileOrFolderExists, getCurrentFileInfo } from '../utils/fs.js';
 
 const list = async () => {
-    const [dirname] = getCurrentFileInfo(import.meta.url);
-    const pathToFolder = resolve(dirname, './files');
+    const [__dirname] = getCurrentFileInfo(import.meta.url);
+    const pathToFolder = resolve(__dirname, './files');
 
     const isTargetFolderDoesNotExists = !(await isFileOrFolderExists(pathToFolder));
 
