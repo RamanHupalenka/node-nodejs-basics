@@ -14,7 +14,7 @@ const calculateHash = async () => {
     }
 
     try {
-        let result = '';
+        const hash = createHash('sha256');
 
         const fileData = await open(pathToFile, 'r');
 
@@ -23,11 +23,11 @@ const calculateHash = async () => {
         });
 
         readStream.on('data', (chunk) => {
-            result += createHash('sha256').update(chunk).digest('hex');
+            hash.update(chunk);
         });
 
         readStream.on('end', () => {
-            console.log(result);
+            console.log(hash.digest('hex'));
         });
     } catch {
         throw new Error('FS operation failed');
