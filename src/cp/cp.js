@@ -19,7 +19,7 @@ const spawnChildProcess = async (args) => {
 
         cp.stdout.pipe(process.stdout);
     } catch {
-        throw new Error('FS operation failed');
+        throw new Error('Child Process operation failed');
     }
 };
 

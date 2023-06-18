@@ -35,7 +35,7 @@ const compress = async () => {
             removeFile(pathToSourceFile);
         });
     } catch {
-        throw new Error('FS operation failed');
+        throw new Error('Archive Compress operation failed');
     }
 };
 

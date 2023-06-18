@@ -6,7 +6,7 @@ import { isFileOrFolderExists, getCurrentFileInfo } from '../utils/fs.js';
 
 const gunzipCallback = (err, chunk, callback) => {
     if (err) {
-        throw new Error('FS operation failed');
+        throw new Error('Gunzip operation failed');
     }
 
     callback(null, String(chunk));
@@ -48,7 +48,7 @@ const decompress = async () => {
             removeFile(pathToSourceArchive);
         });
     } catch (err) {
-        throw new Error('FS operation failed');
+        throw new Error('Archive Decompress operation failed');
     }
 };
 

@@ -21,7 +21,7 @@ const write = async () => {
 
         process.stdin.pipe(writeStream);
     } catch {
-        throw new Error('FS operation failed');
+        throw new Error('Write Stream operation failed');
     }
 };
 

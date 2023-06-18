@@ -30,7 +30,7 @@ const calculateHash = async () => {
             console.log(hash.digest('hex'));
         });
     } catch {
-        throw new Error('FS operation failed');
+        throw new Error('Hash operation failed');
     }
 };
 

@@ -18,7 +18,7 @@ const transform = async () => {
     try {
         process.stdin.pipe(transformStream).pipe(process.stdout);
     } catch {
-        throw new Error('FS operation failed');
+        throw new Error('Transform Stream operation failed');
     }
 };
 

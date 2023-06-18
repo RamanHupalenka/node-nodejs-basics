@@ -48,7 +48,7 @@ const performCalculations = async () => {
 
         console.log(result);
     } catch (err) {
-        throw new Error('FS operation failed');
+        throw new Error('Thread Workers operation failed');
     }
 };
 

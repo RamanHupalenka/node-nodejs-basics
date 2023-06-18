@@ -21,7 +21,7 @@ const read = async () => {
 
         readStream.pipe(process.stdout);
     } catch {
-        throw new Error('FS operation failed');
+        throw new Error('Read Stream operation failed');
     }
 };
 
